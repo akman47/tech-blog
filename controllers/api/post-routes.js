@@ -8,10 +8,18 @@ router.get('/posts', (req, res) => {
         attributes: [
             'id',
             'title',
-            'post',
+            'post_text',
             'created_at'
         ],
         include: [
+            {
+                model: Comment,
+                attributes: ['id', 'comment_text', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -36,10 +44,18 @@ router.get('/posts/:id', (req, res) => {
         attributes: [
             'id',
             'title',
-            'post',
+            'post_text',
             'created_at'
         ],
         include: [
+            {
+                model: Comment,
+                attirubtes: ['id', 'comment_text', 'post_id', 'user_id', 'created_at'],
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },
             {
                 model: User,
                 attributes: ['username']
@@ -63,7 +79,7 @@ router.get('/posts/:id', (req, res) => {
 router.post('/', (req, res) => {
     Post.create({
         title: req.body.title,
-        post: req.body.post,
+        post_text: req.body.post_text,
         user_id: req.body.user_id
     })
     .then(dbPostData => res.json(dbPostData))
@@ -78,7 +94,7 @@ router.put('/:id', (req, res) => {
     Post.update(
         {
             title: req.body.title,
-            post: req.body.post
+            post_text: req.body.post_text
         },
         {
             where: {
@@ -100,7 +116,7 @@ router.put('/:id', (req, res) => {
 })
 
 // DELETE /api/posts1
-router.delete ('/:id', (req, res) => {
+router.destroy ('/:id', (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

@@ -15,13 +15,12 @@ Post.init(
             type: DataTypes.STRING,
             allowNull: false
         },
-        post: {
+        post_text: {
             type: DataTypes.STRING,
             allowNull: false
         },
         user_id: {
             type: DataTypes.INTEGER,
-            allowNull: false,
             references: {
                 model: 'user',
                 key: 'id'
@@ -34,6 +33,6 @@ Post.init(
         underscored: true,
         modelName: 'post'
     }
-)
+);
 
 module.exports = Post;
