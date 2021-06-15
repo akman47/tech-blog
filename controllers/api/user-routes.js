@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require('../../models/User');
 
-// GET /api/users
+// GET all users
 router.get('/', (req, res) => {
     User.findAll({
         attributes: { exclude: ['password'] }
@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// GET /api/users/1
+// GET one user
 router.get('/:id', (req, res) => {
     User.findOne({
         attributes: { exclude: ['password'] },
@@ -34,24 +34,47 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// POST /api/users
+// POST new user
 router.post('/', (req, res) => {
     User.create({
         username: req.body.username,
         password: req.body.password
     })
     .then(dbUserData => {
-        req.session.save(() => {
-            req.session.user_id = dbUserData.id;
-            req.session.username = dbUserData.username;
-            req.session.loggedIn = true;
+        // req.session.save(() => {
+        //     req.session.user_id = dbUserData.id;
+        //     req.session.username = dbUserData.username;
+        //     req.session.loggedIn = true;
 
             res.json(dbUserData);
-        });
+        //});
     });
 });
 
-// PUT /api/users/1
+// login route for authentication
+router.post('/login', (req, res) => {
+    User.findOne({
+        where: {
+            username: req.body.username
+        }
+    })
+    .then(dbUserData => {
+        if (!dbUserData) {
+            res.status(400).json({ message: 'No user with that username!' });
+            return;
+        }
+
+        // verify user
+        const validPassword = dbUserData.checkPassword(req.body.password);
+        if (!validPassword) {
+            res.status(400).json({ message: 'Incorrect password!' });
+            return;
+        }
+        res.json({ user: dbUserData, message: 'You are now logged in!' });
+    });
+});
+
+// PUT edit user
 router.put('/:id', (req, res) => {
     User.update(req.body,
         {
@@ -74,7 +97,7 @@ router.put('/:id', (req, res) => {
     });
 });
 
-// DELETE /api/users/1
+// DELETE user
 router.delete('/:id', (req,res) => {
     User.destroy({
         where: {
