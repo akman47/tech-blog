@@ -64,7 +64,6 @@ header nav ul li a:hover {
 }
 
 /* post-info style */
-
 .post-container {
     display: flex;
     flex-wrap: wrap;
@@ -76,7 +75,7 @@ header nav ul li a:hover {
 }
 
 .posts-list-item {
-    margin: 18px;
+    margin: 25px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -109,7 +108,7 @@ header nav ul li a:hover {
 }
 
 /* log in and sign up style */
-.account {
+.account, .create-post {
     text-align: center;
     padding: 30px 50px;
 }
@@ -118,12 +117,8 @@ header nav ul li a:hover {
     margin-bottom: 5px;
 }
 
-.login-form, .signup-form {
+.login-form, .signup-form, .new-post-form {
     padding: 10px;
-}
-
-#username-login, #password-login, #username-signup, #password-signup {
-    margin: 3px;
 }
 
 #signup {
@@ -131,17 +126,29 @@ header nav ul li a:hover {
     font-weight: bold;
 }
 
-.btn-login, .btn-signup {
-    margin-top: 8px;
-    font-weight: bold;
+/* dashboard style */
+#new-post-body {
+    min-width: 60%;
+    min-height: 150px;
 }
 
+#new-post-title {
+    min-width: 60%;
+    margin-bottom: 10px;
+}
+
+
+
+
+/* utils style */
 .btn {
     border-radius: 5px;
     padding: 5px 12px;
     font-size: 13px;
     background-color: var(--darkgreen);
     color: var(--white);
+    margin-top: 8px;
+    font-weight: bold;
 }
 
 .btn:hover {
@@ -153,6 +160,7 @@ textarea, input {
     border-radius: 5px;
     border: 1px solid #000000;
     background-color: rgb(166, 235, 166);
+    margin: 3px;
 }
 
 textarea:focus, input:focus {
