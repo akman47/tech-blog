@@ -25,4 +25,12 @@ async function loginFormHandler(event) {
     }
 }
 
+function openLoginModal () {
+    document.querySelector('#login-modal').style.display = "block";
+}
+
+function closeLoginModal () {
+    document.querySelector('#login-modal').style.display = "none";
+}
+
 document.querySelector('.login-form').addEventListener('submit', loginFormHandler);

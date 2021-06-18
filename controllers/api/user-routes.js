@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../../models/User');
+const withAuth = require('../../utils/auth');
 
 // GET all users
 router.get('/', (req, res) => {
@@ -94,7 +95,7 @@ router.post('/logout', (req, res) => {
 });
 
 // PUT edit user
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     User.update(req.body,
         {
             individualHooks: true,

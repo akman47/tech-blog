@@ -5,19 +5,36 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Tech Blog</title>
+        <link rel="stylesheet" href="/stylesheets/style.css">
     </head>
     <body>
         <header>
-            <h1>
-                <a href="/">Tech Blog</a>
-            </h1>
+            <div class="title">
+                <div>
+                    <h1>Tech Blog</h1>
+                <!--</div>
+                <div class="description">-->
+                    <p>The hub for all the latest technology news!</p>
+                </div>
+            </div>
             <nav>
-                <a href="/login">Log In</a>
-                <a href="/signup">Sign Up</a>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    {{#if loggedIn}}
+                    <li><button id="logout" class="btn-no-style">Log Out</button></li>
+                    {{else}}
+                    <li><a href="/login">Log In</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                    {{/if}}
+                </ul>
             </nav>
         </header>
         <main>
             {{{ body }}}
         </main>
+        {{#if loggedIn}}
+        <script src="/javascript/logout.js"></script>
+        {{/if}}
     </body>
 </html>

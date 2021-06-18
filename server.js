@@ -1,15 +1,19 @@
+// express, database, and routes
 const express = require('express');
 const sequelize = require('./config/connection');
 const routes = require('./controllers');
-const apiRoutes = require('./controllers/api');
+//const apiRoutes = require('./controllers/api');
 const path = require('path');
 
+// express-handlebars and session
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const helpers = require('./utils/helpers');
+const hbs = exphbs.create({ helpers });
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 require('dotenv').config();
 
+// create server and port
 const app = express();
 const PORT = process.env.PORT || 3001;
 

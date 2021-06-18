@@ -1,9 +1,11 @@
 const router = require('express').Router();
-const Post = require('../../models/Post');
-const User = require('../../models/User');
+//const Post = require('../../models/Post');
+//const User = require('../../models/User');
+const { Post, User, Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // GET all posts /api/posts
-router.get('/posts', (req, res) => {
+router.get('/', (req, res) => {
     Post.findAll({
         attributes: [
             'id',
@@ -36,7 +38,7 @@ router.get('/posts', (req, res) => {
 })
 
 // GET one post /api/posts/1
-router.get('/posts/:id', (req, res) => {
+router.get('/:id', (req, res) => {
     Post.findOne({
         where: {
             id: req.params.id
@@ -76,11 +78,11 @@ router.get('/posts/:id', (req, res) => {
 })
 
 // POST /api/posts
-router.post('/', (req, res) => {
+router.post('/', (req, res) => { // add auth back in
     Post.create({
         title: req.body.title,
         post_text: req.body.post_text,
-        user_id: req.body.user_id
+        user_id: req.session.user_id
     })
     .then(dbPostData => res.json(dbPostData))
     .catch(err => {
@@ -90,7 +92,7 @@ router.post('/', (req, res) => {
 })
 
 // PUT /api/posts/1
-router.put('/:id', (req, res) => {
+router.put('/:id', withAuth, (req, res) => {
     Post.update(
         {
             title: req.body.title,
@@ -116,7 +118,7 @@ router.put('/:id', (req, res) => {
 })
 
 // DELETE /api/posts1
-router.delete ('/:id', (req, res) => {
+router.delete ('/:id', withAuth, (req, res) => {
     Post.destroy({
         where: {
             id: req.params.id

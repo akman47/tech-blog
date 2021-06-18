@@ -1,17 +1,21 @@
- <form class="login-form">
-     <div>
-         <label for "username-login">User Name:</label>
-         <input type="text" id="username-login" placeholder="Your User Name" />
-     </div>
-     <div>
-         <label for "password-login">Password:</label>
-         <input type="text" id="passowrd-login" placeholder="Password" />
-     </div>
-     <div>
-         <button type="submit">login</button>
-     </div>
-     <div>
-        <a href="/signup"><button id="signup" class="btn-no-style">Don't have an account? Sign up!</button></a>
-     </div>
- </form>
+<div class="account">
+<div>
+    <h2>Log Into Your Account</h2>
+</div>
+<form class="login-form">
+    <div>
+        <input type="text" id="username-login" placeholder="Your Username" />
+    </div>
+    <div>
+        <input type="text" id="password-login" placeholder="Password" />
+    </div>
+    <div>
+        <button type="submit" class="btn btn-login">Log In</button>
+    </div>
+    <div>
+        <button id="signup" class="btn-no-style"><a href="/signup">Don't have an account? Sign up!</a></button>
+    </div>
+</form>
+</div>
+
  <script src="/javascript/login.js"></script>
