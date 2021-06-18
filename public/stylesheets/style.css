@@ -137,8 +137,20 @@ header nav ul li a:hover {
     margin-bottom: 10px;
 }
 
+/* modal style */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
 
-
+.btn-modal {
+    display: none;
+}
 
 /* utils style */
 .btn {
