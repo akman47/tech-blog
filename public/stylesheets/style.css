@@ -1,5 +1,6 @@
 :root {
     --white: #f5f5f5;
+    --dullwhite: #dad4d4;
     --darkgreen: #2f4f4f;
     --lightgreen: #8fbc8f;
     --grass: #006400;
@@ -92,7 +93,8 @@ header nav ul li a:hover {
     justify-content: space-between;
     align-items: center;
     background-color: var(--darkgreen);
-    color: var(--white);
+    color: var(--dullwhite);
+    font-weight: light;
     padding: 13px;
 }
 
