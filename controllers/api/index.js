@@ -9,4 +9,3 @@ router.use('/api/posts', postRoutes);
 router.use('/api/comments', commentRoutes);
 
 module.exports = router;
-
