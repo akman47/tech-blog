@@ -2,16 +2,15 @@ async function newPostFormHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('#new-post-title').value.trim();
-    const content = document.querySelector('#new-post-body').value.trim();
+    const post_text = document.querySelector('#new-post-body').value.trim();
 
-    console.log(title, content);
     document.querySelector('.modal').style.display="none";
 
     const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({
             title,
-            content
+            post_text
         }),
         headers: {
             'Content-Type': 'application/json'
