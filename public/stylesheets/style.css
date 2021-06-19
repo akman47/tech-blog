@@ -142,11 +142,22 @@ header nav ul li a:hover {
 .comments-text {
     text-align: left;
     padding: 15px;
+    width: 95%;
 }
 
 .comments-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     list-style: none;
     padding: 5px;
+    width: 100%;
+}
+
+#btn-delete-comment {
+    margin-left: 80px;
+    width: 80%;
 }
 
 .comment-user {

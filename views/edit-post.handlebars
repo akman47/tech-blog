@@ -30,8 +30,9 @@
         </div>
     </form>
 </div>
-
+{{#if post.comments.length}}
 {{> comments post.comments }}
+{{/if}}
 
 <script src="/javascript/edit-post.js"></script>
 <script src="/javascript/delete-post.js"></script>

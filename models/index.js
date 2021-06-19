@@ -8,7 +8,7 @@ User.hasMany(Post, {
 
 Post.belongsTo(User, {
     onDelete: 'cascade',
-    //foreignKey: 'user_id'
+    foreignKey: 'user_id'
 });
 
 Post.hasMany(Comment, {
@@ -18,12 +18,12 @@ Post.hasMany(Comment, {
 
 Comment.belongsTo(Post, {
     onDelete: 'cascade',
-    // foreignKey: 'post_id'
+    foreignKey: 'post_id'
 });
 
 Comment.belongsTo(User, {
     onDelete:'cascade',
-    //foreignKey: 'user_id'
+    foreignKey: 'user_id'
 });
 
 User.hasMany(Comment, {

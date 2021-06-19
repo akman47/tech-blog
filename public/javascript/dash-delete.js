@@ -4,7 +4,7 @@ async function deletePostDashboard(event) {
     const post_id = document.querySelector('.btn-delete-dashboard').getAttribute('data-id');
     console.log(post_id);
 
-    const response = await fetch(`/api/post/${post_id}`, {
+    const response = await fetch(`/api/posts/${post_id}`, {
         method: 'DELETE'
     });
 

@@ -1,10 +1,11 @@
 <div class="posts-list-item">
     {{> post-info post}}
 </div>
-
+{{#if post.comments.length}}
 <div class="comments">
     {{> comments post.comments}}
 </div>
+{{/if}}
 
 {{#if loggedIn}}
 <form class="comment-form">
