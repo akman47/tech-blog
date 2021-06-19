@@ -54,8 +54,13 @@ header nav ul li a {
     text-decoration: none;
 }
 
+#logout {
+    background-color: var(--grass);
+    color: var(--white);
+}
+
 header nav ul li a:hover {
-    color:salmon;
+    color: var(--lightgreen);
 }
 
 .title {
@@ -74,7 +79,7 @@ header nav ul li a:hover {
     padding-top: 15px;
 }
 
-.posts-list-item {
+.posts-list-item, .post-list-item-dashboard {
     margin: 25px;
     display: flex;
     flex-wrap: wrap;
@@ -94,17 +99,66 @@ header nav ul li a:hover {
     background-color: var(--darkgreen);
     color: var(--dullwhite);
     font-weight: light;
-    padding: 13px;
+    padding: 15px;
 }
 
 .post-body {
     margin: 8px;
     font-size: 18px;
+    padding: 15px;
 }
 
+#btn-post {
+    width: 100%;
+}
+
+.dashboard-list h2 {
+    text-align: center;
+    padding: 8px;
+}
+
+/* comments style */
 .comments {
-    margin: 10px;
     text-align: right;
+    margin: 20px;
+}
+
+.comments-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 10px;
+    border: 1px solid var(--darkgreen);
+}
+
+.comments-header {
+    width: 100%;
+    background-color: var(--darkgreen);
+    color: var(--dullwhite);
+    text-align: left;
+    padding: 8px;
+}
+
+.comments-text {
+    text-align: left;
+    padding: 15px;
+}
+
+.comments-list {
+    list-style: none;
+    padding: 5px;
+}
+
+.comment-user {
+    font-weight: bold;
+}
+
+.comment-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+    flex-direction: column;
 }
 
 /* log in and sign up style */
@@ -117,7 +171,7 @@ header nav ul li a:hover {
     margin-bottom: 5px;
 }
 
-.login-form, .signup-form, .new-post-form {
+.login-form, .signup-form, .new-post-form, .edit-post-form {
     padding: 10px;
 }
 
@@ -137,19 +191,82 @@ header nav ul li a:hover {
     margin-bottom: 10px;
 }
 
+#add-new-post {
+    margin-top: 20px;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+.posts-dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.posts-list-item-dashboard {
+    width: 85%;
+    border: 2px solid var(--darkgreen);
+    margin: 10px;
+}
+
+#btn-edit {
+    color: var(--dullwhite);
+    text-decoration: none;
+}
+
+.btn-edit-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    width: 7%;
+    margin-left: 15px;
+}
+
 /* modal style */
 .modal {
     display: none;
     position: fixed;
     z-index: 1;
-    left: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
+    align-items: center;
+    background-color: rgba(47, 79, 79, 0.8);
 }
 
 .btn-modal, .comment-modal {
     display: none;
+}
+
+/* edit post style */
+.edit-post-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.edit-post-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#edit-post-title {
+    min-width: 400px;
+    min-height: 40px;
+}
+
+#edit-post-body {
+    min-width: 400px;
+    min-height: 150px;
+    align-content: top;
 }
 
 /* utils style */
@@ -170,7 +287,7 @@ header nav ul li a:hover {
 textarea, input {
     padding: 1.1%;
     border-radius: 5px;
-    border: 1px solid #000000;
+    border: 1px solid var(--darkgreen);
     background-color: rgb(166, 235, 166);
     margin: 3px;
 }
@@ -178,7 +295,7 @@ textarea, input {
 textarea:focus, input:focus {
     outline: none;
     border: 1px solid #ffffff;
-    background-color: rgb(255, 255, 255, 0.8);
+    background-color: rgb(166, 235, 166, 0.6);
 }
 
 textarea {
@@ -194,4 +311,5 @@ textarea {
     text-decoration: none;
     font-size: 100%;
     font-weight: bold;
+    color: var(--darkgreen);
 }

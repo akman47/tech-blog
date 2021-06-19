@@ -77,7 +77,7 @@ router.get('/post/:id', (req, res) => {
         }
 
         // serialize data
-        const post = dbPostData.map(post=> post.get({ plain:true }));
+        const post = dbPostData.get({ plain:true });
         // pass post object into homepage template
 
         res.render('single-post', {
@@ -100,11 +100,10 @@ router.get('/login', (req, res) => {
 });
 
 router.get('/signup', (req, res) => {
+    if (req.session.loggedIn) {
+        res.redirect('/');
+    }
     res.render('signup');
-});
-
-router.get('/dashboard', (req, res) => { //add auth
-    res.render('dashboard');
 });
 
 module.exports = router;

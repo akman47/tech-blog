@@ -78,7 +78,7 @@ router.get('/:id', (req, res) => {
 })
 
 // POST /api/posts
-router.post('/', (req, res) => { // add auth back in
+router.post('/', withAuth, (req, res) => {
     Post.create({
         title: req.body.title,
         post_text: req.body.post_text,

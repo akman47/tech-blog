@@ -1,10 +1,11 @@
 async function newPostFormHandler(event) {
     event.preventDefault();
 
-    document.querySelector('.modal').style.display="none";
+    const title = document.querySelector('#new-post-title').value.trim();
+    const content = document.querySelector('#new-post-body').value.trim();
 
-    const title = docment.querySelector('#post-title').value.trim();
-    const content = document.querySelector('#post-body').value.trim();
+    console.log(title, content);
+    document.querySelector('.modal').style.display="none";
 
     const response = await fetch('/api/posts', {
         method: 'POST',
@@ -24,11 +25,20 @@ async function newPostFormHandler(event) {
     else {
         alert(response.statusText);
     }
-}
+};
 
-document.querySelector('.new-post-form').addEventListener('submit', newPostFormHandler);
-document.querySelector('#add-new-post').addEventListener('click', function (event){
+function openPostModal (event) {
     event.preventDefault();
 
     document.querySelector('.modal').style.display="block";
-});
+};
+
+function closePostModal (event) {
+    event.preventDefault();
+
+    document.querySelector('.modal').style.display="none";
+};
+
+document.querySelector('.new-post-form').addEventListener('submit', newPostFormHandler);
+document.querySelector('#add-new-post').addEventListener('click', openPostModal);
+document.querySelector('#btn-close').addEventListener('click', closePostModal);

@@ -3,7 +3,7 @@ const {Post, User, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all user posts
-router.get('/', (req, res) => { //add auth
+router.get('/', withAuth, (req, res) => {
     Post.findAll({
         where: {
             user_id: req.session.user_id
@@ -32,7 +32,9 @@ router.get('/', (req, res) => { //add auth
     .then(dbPostData => {
         //serialize data
         const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('dashboard', { posts, loggedIn: true });
+        res.render('dashboard', { 
+            posts,
+            loggedIn: true });
     })
     .catch(err => {
         console.log(err);
@@ -41,10 +43,10 @@ router.get('/', (req, res) => { //add auth
 });
 
 // gets chosen post to edit
-router.get('/edit/:id', (req, res) => { //add auth
+router.get('/edit/:id', withAuth, (req, res) => {
     Post.findOne({
         where: {
-            post_id: req.params.id
+            id: req.params.id
         },
         attributes: [
             'id',

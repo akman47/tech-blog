@@ -1,29 +1,32 @@
 <section>
-    <a href="/dashboard"> &larr; Back to dashboard</a>
+    <div class="edit-post-container">
     <h2>Edit Post</h2>
     <form class="edit-post-form">
-        <div>
-            <input name="post-title" type="text" value="{{post.title}}" />
-            <span>Posted by you on {{format_date created_at}}</span>
+        <div id="edit-post-title">
+            <input name="edit-post-title" id="edit-post-title" type="text" value="{{post.title}}" />
         </div>
-        <div class="post-body">
-            <input name="post-body" type="text" value="{{post_text}}" />
+        <div class="edit-post-body">
+            <input name="edit-post-body" id="edit-post-body" type="text" value="{{post.post_text}}"/>
+        </div>
+        <div>
+            <span>Posted by you on {{format_date post.created_at}}</span>
         </div>
         <div class="btn-container">
             <button type="submit" class="btn btn-post">Save Post</button>
             <button type="button" class="btn btn-delete">Delete Post</button>
-            <button type="submit" class="btn btn-comment">Add Comment</button>
+            <button type="button" class="btn btn-comment">Add Comment</button>
         </div>
     </form>
+    </div>
 </section>
 
 <div class="comment-modal">
     <form class="comment-form">
         <div>
-            <textarea name="comment-body"></textarea>
+            <textarea name="comment-body" placeholder="Comment Here"></textarea>
         </div>
         <div>
-            <button type="submit">Add Comment</button>
+            <button type="submit" class="btn">Add Comment</button>
         </div>
     </form>
 </div>

@@ -1,14 +1,18 @@
-{{> post-info post}}
+<div class="posts-list-item">
+    {{> post-info post}}
+</div>
 
-{{> comments post.comments}}
+<div class="comments">
+    {{> comments post.comments}}
+</div>
 
 {{#if loggedIn}}
 <form class="comment-form">
     <div>
-        <textarea name="comment-body"></textarea>
+        <textarea name="comment-body" id="comment-body"></textarea>
     </div>
     <div>
-        <button type="submit">Add Comment</button>
+        <button type="submit" class="btn btn-comment">Add Comment</button>
     </div>
 </form>
 {{/if}}

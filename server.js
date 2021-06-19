@@ -2,7 +2,6 @@
 const express = require('express');
 const sequelize = require('./config/connection');
 const routes = require('./controllers');
-//const apiRoutes = require('./controllers/api');
 const path = require('path');
 
 // express-handlebars and session
@@ -29,7 +28,10 @@ app.set('view engine', 'handlebars');
 // connect express-session to database
 const sess = {
     secret: process.env.Sess_Secret,
-    cookie: {},
+    rolling: true,
+    cookie: {
+        expires: 5*60*1000
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
@@ -41,7 +43,6 @@ app.use(session(sess));
 
 // turn on routes
 app.use(routes);
-//app.use(apiRoutes);
 
 // connect database to server
 sequelize.sync({ force: false }).then(() => {
