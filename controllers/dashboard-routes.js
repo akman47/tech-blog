@@ -65,7 +65,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
             }, 
             {
                 model: User,
-                attributes: ['username']
+                attributes: ['id','username']
             }
         ]
     })
@@ -79,7 +79,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
         res.render('edit-post', { 
             post,
             loggedIn: true,
-            postOwner: true,
+            userId: req.session.id
         });
     })
     .catch(err => {
@@ -87,6 +87,5 @@ router.get('/edit/:id', withAuth, (req, res) => {
         res.status(500).json(err);
     });
 });
-
 
 module.exports = router;

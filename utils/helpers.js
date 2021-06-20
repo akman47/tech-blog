@@ -8,5 +8,12 @@ module.exports = {
         }
 
         return word;
+    },
+    isPostOwner: (postUserId, userId) => {
+        if (postUserId === userId) {
+            return true;
+        }
+
+        return false;
     }
 }

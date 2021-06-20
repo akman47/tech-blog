@@ -7,7 +7,7 @@
         {{#each this}}
             <li class="comments-list">
                 <div><span class="comment-user">{{user.username}}</span> on {{format_date created_at}} said {{comment_text}}</div>
-                <div><button type="button" class="btn btn-delete-comment" data-id="{{id}}">Delete</button></div>         
+                <div><button type="button" class="btn btn-delete-comment" data-id="{{id}}">Delete</button></div>        
             </li>
         {{/each}}
         </ul>
