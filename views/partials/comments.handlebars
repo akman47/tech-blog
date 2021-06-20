@@ -4,14 +4,24 @@
     </div>
     <div class="comments-text">
         <ul>    
-        {{#each this}}
+        {{#each comments}}
+            {{!-- {{log ../postAuthorId ../dashUserId}} --}}
             <li class="comments-list">
                 <div><span class="comment-user">{{user.username}}</span> on {{format_date created_at}} said {{comment_text}}</div>
-                <div><button type="button" class="btn btn-delete-comment" data-id="{{id}}">Delete</button></div>        
+                {{!-- only post owner can delete post comments --}}
+                {{#if (postCommentDeleteBtn ../postAuthorId ../dashUserId)}}
+                <div><button type="button" class="btn btn-delete-comment" data-id="{{id}}">Delete</button></div>
+                {{/if}}
+                {{!-- only comment owner can delete own comment --}}
+                {{#if (commentDeleteBtn user_id ../dashUserId ../postAuthorId) }}
+                <div><button type="button" class="btn btn-delete-comment" data-id="{{id}}">Delete</button></div>
+                {{/if}}
             </li>
         {{/each}}
         </ul>
     </div>
 </section>
 
+{{#if (postCommentDeleteBtn ../postAuthorId ../dashUserId) }}
 <script src="/javascript/delete-comment.js"></script>
+{{/if}}

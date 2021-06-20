@@ -6,14 +6,19 @@ module.exports = {
         if (amount !== 1) {
             return `${word}s`;
         }
-
         return word;
     },
-    isPostOwner: (postUserId, userId) => {
-        if (postUserId === userId) {
+    postCommentDeleteBtn: (authorId, userId) => {
+        if (authorId === userId) {
             return true;
         }
-
         return false;
-    }
+    },
+    commentDeleteBtn: (commentAuthor, userId, postAuthor) => {
+        if (commentAuthor === userId && postAuthor !== userId) {
+            return true;
+        }
+        return false;
+    },
+
 }

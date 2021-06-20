@@ -25,7 +25,6 @@
         {{#each posts as |post|}}
         <div class="posts-list-item-dashboard">
             {{> post-info post}}
-            </div>
             <div class="btn-edit-container">
                 <div>
                     <button type="button" class="btn btn-edit"><a href="/dashboard/edit/{{id}}" id="btn-edit">Edit</a></button>
@@ -34,6 +33,8 @@
                     <button type="button" data-id="{{id}}" class="btn btn-delete-dashboard">Delete</button>
                 </div>
             </div>
+            </div>
+            
         {{/each}}
     </div>
 </section>

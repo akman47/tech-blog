@@ -3,7 +3,7 @@
 </div>
 {{#if post.comments.length}}
 <div class="comments">
-    {{> comments post.comments}}
+    {{> comments comments=post.comments postAuthorId=postAuthorId dashUserId=dashUserId}}
 </div>
 {{/if}}
 

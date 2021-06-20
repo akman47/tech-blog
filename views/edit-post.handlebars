@@ -31,7 +31,8 @@
     </form>
 </div>
 {{#if post.comments.length}}
-{{> comments post.comments }}
+{{!-- {{log postAuthorId dashUserId}} --}}
+{{> comments comments=post.comments postAuthorId=postAuthorId dashUserId=dashUserId }}
 {{/if}}
 
 <script src="/javascript/edit-post.js"></script>

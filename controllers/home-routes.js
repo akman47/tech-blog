@@ -66,7 +66,7 @@ router.get('/post/:id', (req, res) => {
             },
             {
                 model: User,
-                attributes: ['username']
+                attributes: ['id','username']
             }
         ]
     })
@@ -82,7 +82,9 @@ router.get('/post/:id', (req, res) => {
 
         res.render('single-post', {
             post,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
+            dashUserId: req.session.user_id,
+            postAuthorId: post.user.id
         });
     })
     .catch(err => {
@@ -105,6 +107,11 @@ router.get('/signup', (req, res) => {
         return;
     }
     res.render('signup');
+});
+
+// console log session variables
+router.get('/', (req, res) => {
+    console.log(req.session);
 });
 
 module.exports = router;

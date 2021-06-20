@@ -12,6 +12,14 @@
     margin: 0;
 }
 
+.post a {
+    text-decoration: none;
+}
+
+.post a:visited, a:link {
+    color: var(--darkgreen);
+}
+
 body, html {
     background-color: var(--lightgreen);
     color: var(--darkgreen);
@@ -186,7 +194,7 @@ header nav ul li a:hover {
     padding: 10px;
 }
 
-#signup {
+#signup, #login {
     margin-top: 10px;
     font-weight: bold;
 }
