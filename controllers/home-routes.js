@@ -30,11 +30,11 @@ router.get('/', (req, res) => {
     .then(dbPostData => {
         // serialize data
         const posts = dbPostData.map(post=> post.get({ plain:true }));
+        
         // pass post object into homepage template
-
         res.render('homepage', {
             posts,
-            loggedIn: req.session.loggedIn
+            loggedIn: req.session.loggedIn,
         });
     })
     .catch(err => {
@@ -78,13 +78,13 @@ router.get('/post/:id', (req, res) => {
 
         // serialize data
         const post = dbPostData.get({ plain:true });
-        // pass post object into homepage template
 
+        // pass post object into single-post template
         res.render('single-post', {
             post,
             loggedIn: req.session.loggedIn,
             dashUserId: req.session.user_id,
-            postAuthorId: post.user.id
+            postAuthorId: post.user.id,
         });
     })
     .catch(err => {

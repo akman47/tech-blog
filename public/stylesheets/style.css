@@ -80,18 +80,13 @@ header nav ul li a:hover {
 .post-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: column;
-    align-items: flex-start;
-    margin-left: 15px;
-    padding-top: 15px;
+    align-items: center;
 }
 
 .posts-list-item, .post-list-item-dashboard {
-    margin: 25px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    margin: 35px;
     border: 2px solid var(--darkgreen);
 }
 
@@ -113,7 +108,13 @@ header nav ul li a:hover {
 .post-body {
     margin: 8px;
     font-size: 18px;
-    padding: 15px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-text {
+    width: 100%;
 }
 
 #btn-post {
@@ -125,17 +126,24 @@ header nav ul li a:hover {
     padding: 8px;
 }
 
+.post-right-container {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 /* comments style */
 .comments {
     text-align: right;
-    margin: 20px;
+    margin: 10px;
 }
 
 .comments-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin: 10px;
+    margin: 25px;
     border: 1px solid var(--darkgreen);
 }
 
@@ -144,13 +152,15 @@ header nav ul li a:hover {
     background-color: var(--darkgreen);
     color: var(--dullwhite);
     text-align: left;
-    padding: 8px;
+    padding: 10px;
+    font-size: 20px;
 }
 
 .comments-text {
     text-align: left;
     padding: 15px;
     width: 95%;
+    font-size: 18px;
 }
 
 .comments-list {
@@ -160,7 +170,6 @@ header nav ul li a:hover {
     align-items: center;
     list-style: none;
     padding: 5px;
-    width: 100%;
 }
 
 #btn-delete-comment {
@@ -227,20 +236,26 @@ header nav ul li a:hover {
     width: 85%;
     border: 2px solid var(--darkgreen);
     margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: cetner;
 }
 
 #btn-edit {
-    color: var(--dullwhite);
+    color: var(--white);
     text-decoration: none;
+    margin: 3px;
 }
 
 .btn-edit-container {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    width: 7%;
-    margin-left: 15px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#btn-delete-dashboard {
+    margin-left: 5px;
 }
 
 /* modal style */
@@ -267,6 +282,11 @@ header nav ul li a:hover {
     justify-content: space-between;
     align-items: center;
     margin: 20px;
+}
+
+.back {
+    margin: 15px;
+    padding: 5px;
 }
 
 .edit-post-form {
@@ -318,7 +338,7 @@ textarea:focus, input:focus {
 }
 
 textarea {
-    min-width: 40%;
+    min-width: 50%;
     min-height: 100px;
 }
 

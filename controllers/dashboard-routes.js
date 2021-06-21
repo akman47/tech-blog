@@ -34,7 +34,9 @@ router.get('/', withAuth, (req, res) => {
         const posts = dbPostData.map(post => post.get({ plain: true }));
         res.render('dashboard', { 
             posts,
-            loggedIn: true });
+            loggedIn: true,
+            dashUserId: req.session.user_id
+        });
     })
     .catch(err => {
         console.log(err);
