@@ -24,7 +24,3 @@ A CMS-style blog application for developers to publish articles and blog posts a
 
 ## Contribution
 Made by Angela Man
-
-## Criteria
-WHEN I click on the sign-up button
-THEN my user credentials are saved and I am logged into the site
