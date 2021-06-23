@@ -16,11 +16,11 @@ A CMS-style blog application for developers to publish articles and blog posts a
 * mySQL2
 
 ## Website
-[Tech Blog Link]()
+[Tech Blog Application](https://protected-oasis-13537.herokuapp.com/)
 
 ## Snapshots
-![Snapshot of Tech Blog application]()
-![Snapshot of User Dashboard]()
+![Snapshot of Tech Blog application](./tech-blog.png)
+![Snapshot of User Dashboard](./tech-blog-dashboard.png)
 
 ## Contribution
 Made by Angela Man
